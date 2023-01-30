@@ -3,7 +3,7 @@
 @section('title', 'Lista Comics DB')
 
 @section('content')
-    <h1 class="text-center text-primary">Lista Comics Disponibili nel DB-Comics</h1>
+    <h1 class="text-center text-primary mb-5">Lista Comics Disponibili nel DB-Comics</h1>
 
     <div class="row">
         @foreach ($comics as $singleComics)
@@ -14,8 +14,8 @@
                     <p>{{ $singleComics->description }}</p>
                     <p>{{ $singleComics->price }}</p>
                     <p>{{ $singleComics->series }}</p>
-                    <a href="{{ route('comics.edit', $comics->id) }}" class="btn btn-primary"><i class="fas fa-pencil"></i>Edit Comics</a>
-                    <a href="{{ route('comics.show', $comics->id) }}" class="btn btn-info"><i class="fas fa-eye"></i>Show Comics</a>
+                    {{-- <a href="{{ route('comics.edit', $comics->id) }}" class="btn btn-primary"><i class="fas fa-pencil"></i>Edit Comics</a> --}}
+                    {{-- <a href="{{ route('comics.show', $comics->id) }}" class="btn btn-info"><i class="fas fa-eye"></i>Show Comics</a> --}}
         
                 </div>
             </div>
