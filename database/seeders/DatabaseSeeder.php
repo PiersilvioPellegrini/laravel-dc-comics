@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Comics;
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -14,9 +15,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $comicsList =config('comics');
+        $comicsList = config('comics');
 
-        foreach($comicsList as $data){
+        foreach ($comicsList as $data) {
             $singleComics = new Comics();
 
             $singleComics->title = $data['title'];

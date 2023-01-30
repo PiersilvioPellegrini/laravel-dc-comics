@@ -3,33 +3,23 @@
 @section('title', 'Lista Comics DB')
 
 @section('content')
-  <h1>Lista Comics Disponibili nel DB-Comics</h1>
+    <h1 class="text-center text-primary">Lista Comics Disponibili nel DB-Comics</h1>
 
- <table class="table"> 
-  <thead>
-      <tr>
-        <th>Id</th>
-        <th>Cover</th>
-        <th>Titolo</th>
-        <th>Publico</th>
-        <th>Stato</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      @foreach ($posts as $post)
-        <tr>
-          <td>{{ $post->id }}</td>
-          <td><img src="{{ $post->cover_img }}" alt="" style="width: 60px"></td>
-          <td>{{ $post->title }}</td>
-          <td>{{ $post->public ? 'Si' : 'No' }}</td>
-          <td>{{ $post->status }}</td>
-          <td>
-            <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary"><i class="fas fa-pencil"></i>E</a>
-            <a href="{{ route('posts.show', $post->id) }}" class="btn btn-info"><i class="fas fa-eye"></i>S</a>
-          </td>
-        </tr>
-      @endforeach
-    </tbody>
-  </table> 
+    <div class="row">
+        @foreach ($comics as $singleComics)
+            <div class="col-3">
+                <div class="card">
+                    <img src="{{ $singleComics->thumb }}" alt="">
+                    <h3>{{ $singleComics->title }}</h3>
+                    <p>{{ $singleComics->description }}</p>
+                    <p>{{ $singleComics->price }}</p>
+                    <p>{{ $singleComics->series }}</p>
+                    <a href="{{ route('comics.edit', $comics->id) }}" class="btn btn-primary"><i class="fas fa-pencil"></i>Edit Comics</a>
+                    <a href="{{ route('comics.show', $comics->id) }}" class="btn btn-info"><i class="fas fa-eye"></i>Show Comics</a>
+        
+                </div>
+            </div>
+        @endforeach
+    </div>
+
 @endsection
