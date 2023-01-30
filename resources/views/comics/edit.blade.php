@@ -1,43 +1,57 @@
-
 @extends('layouts.app')
 
-{{-- @php
-  $title = 'Modifica post #' . $post->id;
+@php
+    $title = 'Modifica Comics #' . $comics->id;
 @endphp
 
 @section('title', $title)
 
 @section('content')
-  <h1>{{ $title }}</h1>
+    <h1>{{ $title }}</h1>
 
-  {{-- Form per la creazione --}}
-  {{-- <form action="{{ route('posts.update', $post->id) }}" method="POST">
-    @csrf()
-    @method('PUT')
+    {{-- Form per la creazione --}}
+    <form action="{{ route('comics.update', $comics->id) }}" method="POST">
+        @csrf()
+        @method('PUT')
 
-    <div class="mb-3">
-      <label class="form-label">Titolo</label>
-      <input type="text" class="form-control" name="title" value="{{ $post->title }}">
-    </div>
+        <div class="mb-3">
+            <label class="form-label">Titolo</label>
+            <input type="text" class="form-control" name="title" value="{{ $comics->title }}">
+        </div>
 
-    <div class="mb-3">
-      <label class="form-label">Contenuto</label>
-      <textarea name="content" cols="30" rows="5" class="form-control">{{ $post->content }}</textarea>
-    </div>
+        <div class="mb-3">
+            <label class="form-label">Descrizione</label>
+            <textarea name="description" cols="30" rows="5" class="form-control">{{ $comics->description }}</textarea>
+        </div>
 
-    <div class="mb-3">
-      <label class="form-label">Immagine di copertina</label>
-      <input type="text" class="form-control" name="cover_img" value="{{ $post->cover_img }}">
-    </div>
+        <div class="mb-3">
+            <label class="form-label">Immagine di copertina</label>
+            <input type="text" class="form-control" name="thumb" value="{{ $comics->thumb }}">
+        </div>
 
-    <div class="mb-3 form-check form-switch">
-      <input class="form-check-input" type="checkbox" role="switch" id="switch_public" name="public"
-        {{ $post->public ? 'checked' : '' }}>
-      <label class="form-check-label" for="switch_public">Post publico</label>
-    </div>
+        <div class="mb-3">
+            <label class="form-label">Prezzo</label>
+            <input type="text" class="form-control" name="price" value="{{ $comics->price }}">
+        </div>
 
-    <a href="{{ route('posts.index') }}" class="btn btn-secondary">Annulla</a>
-    <button class="btn btn-primary">Salva</button>
-  </form> --}}
+        <div class="mb-3">
+            <label class="form-label">Series</label>
+            <input type="text" class="form-control" name="series" value="{{ $comics->series }}">
+        </div>
 
-{{-- @endsection --}} 
+        <div class="mb-3">
+            <label class="form-label">Data vendita</label>
+            <input type="text" class="form-control" name="sale_date" value="{{ $comics->sale_date }}">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Tipologia</label>
+            <input type="text" class="form-control" name="type" value="{{ $comics->type }}">
+        </div>
+
+
+        <a href="{{ route('comics.index') }}" class="btn btn-secondary">Annulla</a>
+        <button class="btn btn-primary">Salva</button>
+    </form>
+
+@endsection

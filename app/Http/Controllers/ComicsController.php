@@ -58,7 +58,7 @@ class ComicsController extends Controller
 
         return view("comics.show", [
 
-            "singlecomics" => $singleComics
+            "comics" => $singleComics
         ]);
     }
 
@@ -71,7 +71,7 @@ class ComicsController extends Controller
     public function edit(Comics $comics)
     {
         return view("comics.edit", [
-            "singlecomics" => $comics
+            "comics" => $comics
         ]);
     }
 
