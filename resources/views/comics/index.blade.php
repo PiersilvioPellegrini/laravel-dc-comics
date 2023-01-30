@@ -5,8 +5,8 @@
 @section('content')
   <h1>Lista Comics Disponibili nel DB-Comics</h1>
 
-  {{-- <table class="table"> --}}
-    {{-- <thead>
+ <table class="table"> 
+  <thead>
       <tr>
         <th>Id</th>
         <th>Cover</th>
@@ -31,5 +31,5 @@
         </tr>
       @endforeach
     </tbody>
-  </table> --}}
+  </table> 
 @endsection
