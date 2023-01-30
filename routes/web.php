@@ -1,7 +1,8 @@
 <?php
 
+use App\Http\Controllers\ComicsController;
 use Illuminate\Support\Facades\Route;
-
+use App\Models\Comics;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,3 +19,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
+
+
+Route::resource("comics",ComicsController::class);

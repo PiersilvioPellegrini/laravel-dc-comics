@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Comics;
 use Illuminate\Http\Request;
 
+
 class ComicsController extends Controller
 {
     /**
