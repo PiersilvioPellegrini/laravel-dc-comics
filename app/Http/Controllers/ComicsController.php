@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreComicsRequest;
+use App\http\Requests\UpdateComicsRequest;
 use App\Models\Comics;
-use Illuminate\Http\Request;
-use Spatie\LaravelIgnition\Http\Requests\UpdateConfigRequest;
+// use Illuminate\Http\Request;
+// use Spatie\LaravelIgnition\Http\Requests\UpdateConfigRequest;
 
 class ComicsController extends Controller
 {
@@ -83,7 +84,7 @@ class ComicsController extends Controller
      * @param  \App\Models\Comics  $comics
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateConfigRequest $request, Comics $comic)
+    public function update(UpdateComicsRequest $request, Comics $comic)
     {
         $data = $request->validated();
 

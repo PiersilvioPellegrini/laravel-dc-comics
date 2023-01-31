@@ -27,9 +27,9 @@ class StoreComicsRequest extends FormRequest
             "title"=>"required|min:5|max:255",
             "description"=>"required|text",
             "thumb"=> "string|url",
-            "price"=> "required|int|float",
+            "price"=> "required",
             "series"=> "string",
-            "sale_date"=> "required|date|datetime",
+            "sale_date"=> "required|date",
             "type"=> "string"
         ];
     }
