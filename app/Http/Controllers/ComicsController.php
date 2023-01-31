@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreComicsRequest;
 use App\Models\Comics;
 use Illuminate\Http\Request;
-
+use Spatie\LaravelIgnition\Http\Requests\UpdateConfigRequest;
 
 class ComicsController extends Controller
 {
@@ -38,9 +39,9 @@ class ComicsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreComicsRequest $request)
     {
-        $data = $request->all();
+        $data = $request->validated();
         $singleComics = Comics::create($data);
 
         return redirect()->route("comics.show", $singleComics->id);
@@ -68,10 +69,10 @@ class ComicsController extends Controller
      * @param  \App\Models\Comics  $comics
      * @return \Illuminate\Http\Response
      */
-    public function edit(Comics $comics)
+    public function edit(Comics $comic)
     {
         return view("comics.edit", [
-            "comics" => $comics
+            "comic" => $comic
         ]);
     }
 
@@ -82,13 +83,13 @@ class ComicsController extends Controller
      * @param  \App\Models\Comics  $comics
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Comics $comics)
+    public function update(UpdateConfigRequest $request, Comics $comic)
     {
-        $data = $request->all();
+        $data = $request->validated();
 
-        $comics->update($data);
+        $comic->update($data);
 
-        return redirect()-> route("comics.show", $comics->id);
+        return redirect()-> route("comics.show", $comic->id);
     }
 
     /**
@@ -97,8 +98,9 @@ class ComicsController extends Controller
      * @param  \App\Models\Comics  $comics
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Comics $comics)
+    public function destroy(Comics $comic)
     {
-        //
+        $comic->delete();
+        return redirect()->route("comics.index");
     }
 }
